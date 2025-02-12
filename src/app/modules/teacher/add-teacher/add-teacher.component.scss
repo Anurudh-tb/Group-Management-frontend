@@ -1,0 +1,98 @@
+/* Container Styling */
+.form-container {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Title Styling */
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Label Styling */
+label {
+  display: block;
+  font-weight: 500;
+  margin: 10px 0 5px;
+  text-align: left;
+  color: #555;
+}
+
+/* Input Fields & Select Box */
+input, select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+input:focus, select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Phone Number Container */
+.phone-container {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* Phone Select (Country Code) */
+.phone-select {
+  width: 30%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Phone Input */
+.phone-input {
+  flex-grow: 1;
+}
+
+/* Submit Button */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, #007BFF, #0056b3);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(45deg, #0056b3, #003d82);
+}
+
+/* Disabled Button */
+.submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .form-container {
+    width: 90%;
+    padding: 20px;
+  }
+}

@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Student Registration</h2>
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input id="firstname" formControlName="firstname" type="text">
+    </div>
+
+    <div class="form-group">
+      <label for="middlename">Middle Name</label>
+      <input id="middlename" formControlName="middlename" type="text">
+    </div>
+
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input id="lastname" formControlName="lastname" type="text">
+    </div>
+
+    <div class="form-group">
+      <label for="dob">Date of Birth</label>
+      <input id="dob" formControlName="dob" type="date">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea id="address" formControlName="address"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" formControlName="email" type="email">
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <div class="radio-group">
+        <label class="radio-label">
+          <input type="radio" formControlName="gender" value="Male">
+          Male
+        </label>
+        <label class="radio-label">
+          <input type="radio" formControlName="gender" value="Female">
+          Female
+        </label>
+        <label class="radio-label">
+          <input type="radio" formControlName="gender" value="Other">
+          Other
+        </label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input id="age" formControlName="age" type="number">
+    </div>
+
+    <button type="submit" [disabled]="studentForm.invalid">Submit</button>
+  </form>
+</div>
