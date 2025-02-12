@@ -1,0 +1,40 @@
+<div class="container">
+  <h2>Add Students to Group</h2>
+  <form [formGroup]="addStudentsForm" (ngSubmit)="onSubmit()">
+
+    <!-- Select Group -->
+    <div class="form-group">
+      <label for="group">Select Group:</label>
+      <select formControlName="groupId" required>
+        <option value="" disabled>Select Group</option>
+        <option *ngFor="let course of groups" [value]="course.id">{{ course.name }}</option>
+      </select>
+    </div>
+
+    <!-- Select Students -->
+    <div class="form-group dropdown">
+      <label for="students">Select Students:</label>
+
+      <!-- Dropdown Button -->
+      <div class="dropdown-toggle" (click)="toggleDropdown()">
+        {{ selectedStudentIds.length > 0 ? selectedStudentIds.length + ' students selected' : 'Select Students' }}
+        <span class="arrow">&#9662;</span>
+      </div>
+
+      <!-- Dropdown Content -->
+      <div class="dropdown-content" *ngIf="dropdownOpen">
+        <div *ngFor="let student of students">
+          <label class="dropdown-item">
+            <input type="checkbox" [checked]="selectedStudentIds.includes(student.id)" (change)="onStudentSelect($event, student.id)" />
+            {{ student.firstname }} {{ student.middlename }} {{ student.lastname }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="addStudentsForm.invalid">Add Students</button>
+  </form>
+</div>
