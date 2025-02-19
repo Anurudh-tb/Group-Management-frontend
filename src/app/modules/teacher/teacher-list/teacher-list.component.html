@@ -1,0 +1,58 @@
+<!-- <div class="table-teacher-container" >
+  <h2>Teacher List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Marital Status</th>
+        <th>Govt ID</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of teachersList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.address }}</td>
+        <td>{{ teacher.email }}</td>
+        <td>{{ teacher.marital_status }}</td>
+        <td>{{ teacher.govt_id }}</td>
+        <td>{{ teacher.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+<div class="table-teacher-container">
+  <h2>Teacher List</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Email</th>
+        <th>Marital Status</th>
+        <th>Govt ID</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of paginatedTeachers; let i = index">
+        <td>{{ first + i + 1 }}</td>
+        <td>{{ teacher.name }}</td>
+        <td>{{ teacher.address }}</td>
+        <td>{{ teacher.email }}</td>
+        <td>{{ teacher.marital_status }}</td>
+        <td>{{ teacher.govt_id }}</td>
+        <td>{{ teacher.phone }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- PrimeNG Paginator -->
+ 
+</div>

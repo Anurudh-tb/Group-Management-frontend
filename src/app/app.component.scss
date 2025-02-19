@@ -1,0 +1,207 @@
+// /* Reset default margins and ensure full height */
+// html, body {
+//   margin: 0;
+//   padding: 0;
+//   height: 100%;
+//   overflow: hidden; /* Prevent double scrollbars */
+// }
+
+// /* Main container taking full viewport height */
+// .navbar-container {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   width: 100%;
+//   position: relative;
+// }
+
+// /* Fixed navbar at the top */
+// .navbar {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   z-index: 1000;
+//   /* Reuse your existing navbar styles */
+//   display: flex;
+//   justify-content: center;
+//   background: rgba(255, 255, 255, 0.1);
+//   backdrop-filter: blur(10px);
+//   border: 1px solid rgba(255, 255, 255, 0.2);
+//   box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+// }
+
+// /* Style for the app-dashboard component */
+// app-dashboard {
+//   width: 100%;
+//   display: block;
+// }
+
+// /* Main content area - fixed position */
+// .main-content {
+//   flex: 1;
+//   position: relative;
+//   margin-top: 80px; /* Adjust based on navbar height */
+//   padding: 20px;
+//   // background-color: aqua;
+//   overflow: hidden; /* Prevent outer scrolling */
+// }
+
+// /* Router outlet wrapper for scrollable content */
+// .router-content-wrapper {
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   overflow-y: auto;
+//   overflow-x: hidden;
+//   // padding: 20px;
+
+//   /* Smooth scrolling */
+//   scroll-behavior: smooth;
+
+//   /* Custom scrollbar styling */
+//   &::-webkit-scrollbar {
+//    display: none;
+//   }
+
+//   &::-webkit-scrollbar-track {
+//     background: #f1f1f1;
+//   }
+
+//   &::-webkit-scrollbar-thumb {
+//     background: #888;
+//     border-radius: 4px;
+
+//     &:hover {
+//       background: #555;
+//     }
+//   }
+// }
+
+// /* Router outlet styling */
+// router-outlet {
+//   display: none; /* Router outlets shouldn't be visible */
+// }
+
+// /* Router outlet sibling (actual content) */
+// router-outlet + * {
+//   display: block;
+//   width: 100%;
+// }
+
+// /* Responsive adjustments */
+// @media (max-width: 768px) {
+//   .main-content {
+//     margin-top: 70px;
+//   }
+
+//   .router-content-wrapper {
+//     padding: 15px;
+//   }
+// }
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent double scrollbars */
+}
+
+/* Main container taking full viewport height */
+.navbar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+/* Fixed navbar at the top */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  /* Reuse your existing navbar styles */
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+}
+
+/* Style for the app-dashboard component */
+app-dashboard {
+  width: 100%;
+  display: block;
+}
+
+/* Main content area - fixed position */
+.main-content {
+  flex: 1;
+  position: relative;
+  margin-top: 80px; /* Adjust based on navbar height */
+  padding: 20px;
+  // background-color: aqua;
+  overflow: hidden; /* Prevent outer scrolling */
+}
+
+/* Router outlet wrapper for scrollable content */
+.router-content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  // padding: 20px;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+
+  /* Custom scrollbar styling */
+  &::-webkit-scrollbar {
+   display: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+
+    &:hover {
+      background: #555;
+    }
+  }
+}
+
+/* Router outlet styling */
+router-outlet {
+  display: none; /* Router outlets shouldn't be visible */
+}
+
+/* Router outlet sibling (actual content) */
+router-outlet + * {
+  display: block;
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .main-content {
+    margin-top: 70px;
+  }
+
+  .router-content-wrapper {
+    padding: 15px;
+  }
+}
+
+

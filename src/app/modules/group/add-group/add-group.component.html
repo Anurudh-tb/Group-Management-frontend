@@ -1,23 +1,42 @@
-
 <div class="container">
-  <h2>Add Group</h2>
-  <form
-   [formGroup]="groupForm" (ngSubmit)="onSubmit()"
-   >
+  <h2>Create Group and Add Students</h2>
+  <form [formGroup]="groupForm" (ngSubmit)="onSubmit()">
 
+    <!-- Course Name -->
     <div class="form-group">
-      <label for="courseName">Course Name</label>
-      <input id="courseName" type="text" formControlName="courseName" [ngClass]="{'ng-invalid ng-touched': groupForm.controls['courseName'].invalid && groupForm.controls['courseName'].touched}">
+      <label for="courseName">Group Name</label>
+      <input id="courseName" type="text" formControlName="courseName"
+             [ngClass]="{'ng-invalid ng-touched': groupForm.controls['courseName'].invalid && groupForm.controls['courseName'].touched}">
     </div>
 
+    <!-- Select Teacher -->
     <div class="form-group">
       <label for="teacherId">Teacher</label>
-      <select id="teacherId" formControlName="teacherId" [ngClass]="{'ng-invalid ng-touched': groupForm.controls['teacherId'].invalid && groupForm.controls['teacherId'].touched}">
+      <select id="teacherId" formControlName="teacherId"
+              [ngClass]="{'ng-invalid ng-touched': groupForm.controls['teacherId'].invalid && groupForm.controls['teacherId'].touched}">
         <option value="" disabled>Select a teacher</option>
         <option *ngFor="let teacher of teachersList" [value]="teacher.id">{{ teacher.name }}</option>
       </select>
     </div>
 
-    <button type="submit" [disabled]="groupForm.invalid">Create Group</button>
+    <!-- Select Students -->
+    <div class="form-group dropdown">
+      <label for="students">Select Students:</label>
+      <div class="dropdown-toggle" (click)="toggleDropdown()">
+        {{ selectedStudentIds.length > 0 ? selectedStudentIds.length + ' students selected' : 'Select Students' }}
+        <span class="arrow">&#9662;</span>
+      </div>
+      <div class="dropdown-content" *ngIf="dropdownOpen">
+        <div *ngFor="let student of students">
+          <label class="dropdown-item">
+            <input type="checkbox" [checked]="selectedStudentIds.includes(student.id)" (change)="onStudentSelect($event, student.id)" />
+            {{ student.firstname }} {{ student.middlename }} {{ student.lastname }}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submit Button -->
+    <button type="submit" [disabled]="groupForm.invalid">Create Group & Add Students</button>
   </form>
 </div>

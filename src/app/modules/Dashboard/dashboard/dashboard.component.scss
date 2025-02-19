@@ -1,292 +1,406 @@
-// Variables
-$bg-color: #64a2f5;
-$hover-bg: #444;
-$text-color: white;
-$hover-text-bg: #555;
+// // Variables
+// $bg-color: #64a2f5;
+// $hover-bg: #444;
+// $text-color: white;
+// $hover-text-bg: #555;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+// * {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
 
-.dashboard-container {
+// .dashboard-container {
+//   display: flex;
+//   height: 100vh; // Full viewport height
+// }
+
+
+// .sideNav {
+//   grid-column: 1;
+//   // width: 250px;
+//   width: 20%;
+//   height: 100vh;
+//   background-color: $bg-color;
+//   color: $text-color;
+//   padding: 20px;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+//   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+// }
+
+
+// .container {
+//   display: flex;
+//   width: 100%;
+//   min-height: 100vh;
+//   // margin-left: 100px;
+//   overflow-x: hidden; // Prevents unwanted scrolling
+// }
+
+// .dropdown {
+//   margin-bottom: 15px;
+//   position: relative;
+
+//   button {
+//     width: 100%;
+//     background: none;
+//     border: none;
+//     color: $text-color;
+//     font-size: 18px;
+//     text-align: left;
+//     padding: 10px;
+//     cursor: pointer;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     transition: transform 0.3s ease;
+
+//     &:hover {
+//       background: $hover-bg;
+//     }
+//   }
+// }
+
+
+// .main-content {
+//   flex-grow: 1;
+//   margin-left: 20%;
+//   width: calc(100% - 20%);
+//   padding: 20px;
+//   background: #f4f6f9;
+//   overflow: hidden; // Prevents horizontal scrolling
+// }
+
+// .container {
+//   display: flex;
+//   height: 100vh;
+// }
+
+// .sideNav {
+//   width: 20%;
+//   height: 100vh;
+//   background-color: #64a2f5;
+//   color: white;
+//   padding: 20px;
+//   position: fixed;
+//   left: 0;
+//   top: 0;
+// }
+
+// .main-content {
+//   margin-left: 10%;
+//   width: 80%;
+//   padding: 20px;
+//   background: #f4f6f9;
+// }
+
+
+
+
+// .contents {
+//   width: 100%;
+//   padding: 20px;
+//   background: #f4f6f9;
+//   border-radius: 5px;
+//   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+//   min-height: 100vh;
+//   margin-left: 0; // Fix alignment
+// }
+
+
+
+
+
+// h2,h4 {
+//   text-align: center;
+//   color: #333;
+//   margin-bottom: 15px;
+// }
+
+
+// table {
+//   width: 80%;
+//   border-collapse: collapse;
+//   font-size: 16px;
+//   text-align: left;
+//   overflow: hidden;
+//   border-radius: 10px;
+//   margin-left: 200px;
+// }
+
+
+// thead {
+//   background-color: #64a2f5;
+//   color: white;
+// }
+
+// th, td {
+//   padding: 12px;
+//   border-bottom: 1px solid #ddd;
+// }
+
+// th {
+//   font-weight: bold;
+// }
+
+
+// tbody tr:hover {
+//   background-color: rgba(100, 162, 245, 0.2);
+//   transition: background 0.3s ease-in-out;
+// }
+
+// button {
+//   background: #f44336;
+//   color: white;
+//   border: none;
+//   padding: 8px 12px;
+//   border-radius: 5px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   transition: background 0.3s;
+// }
+
+// button:hover {
+//   background: #d32f2f;
+// }
+
+
+
+
+
+
+
+// .dropdown {
+//   position: relative;
+//   display: inline-block;
+
+//   select {
+//     width: 200px;
+//     padding: 5px;
+//     font-size: 16px;
+//     border: 2px solid #64a2f5;
+//     border-radius: 5px;
+//     background-color: white;
+//     color: #333;
+//     cursor: pointer;
+//     appearance: none; // Removes default arrow (for modern browsers)
+//     outline: none;
+//     transition: all 0.3s ease-in-out;
+
+//     option :hover {
+//       background-color: rgb(150, 149, 149); // Light blue hover
+//     }
+
+//     &:focus {
+//       border-color: #3367d6; // Darker blue for focus
+//       box-shadow: 0 0 5px rgba(100, 162, 245, 0.5);
+//     }
+//   }
+
+//   // Custom dropdown arrow
+//   &::after {
+//     content: '\25BC'; // Unicode for down arrow
+//     font-size: 14px;
+//     color: #64a2f5;
+//     position: absolute;
+//     top: 50%;
+//     right: 15px;
+//     transform: translateY(-50%);
+//     pointer-events: none; // Prevent interaction
+//   }
+// }
+
+
+/* dashboard.component.css */
+/* Modern Navbar Container */
+/* Modern Professional Navbar */
+.navbar {
   display: flex;
-  height: 100vh; // Full viewport height
-}
-
-/* Sidebar (Left Navigation) */
-.sideNav {
-  grid-column: 1;
-  // width: 250px;
-  width: 20%;
-  height: 100vh;
-  background-color: $bg-color;
-  color: $text-color;
-  padding: 20px;
-  position: fixed;
-  left: 0;
+  justify-content: flex-end; /* Changed to align items to right */
+  align-items: center;
+  gap: 24px;
+  padding: 12px 32px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.12);
+  position: sticky;
   top: 0;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
-
-.container {
-  display: flex;
-  width: 100%;
-  min-height: 100vh;
-  margin-left: 100px;
-  overflow-x: hidden; // Prevents unwanted scrolling
-}
-/* Dropdown */
-.dropdown {
-  margin-bottom: 15px;
+/* Nav Item Styling */
+.nav-item {
   position: relative;
+}
 
-  button {
-    width: 100%;
-    background: none;
-    border: none;
-    color: $text-color;
-    font-size: 18px;
-    text-align: left;
-    padding: 10px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: transform 0.3s ease;
+/* Changed button to look like a nav link */
+.dropbtn {
+  background: none;
+  color: #4a90e2;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: none;
+}
+
+.dropbtn:hover {
+  background: none;
+  color: #357abd;
+  box-shadow: none;
+}
+
+/* Dropdown Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 220px;
+  max-height: calc(100vh - 200px);
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid #f0f0f0;
+  overflow-y: auto;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #4a90e2;
+    border-radius: 8px;
 
     &:hover {
-      background: $hover-bg;
+      background: #357abd;
     }
   }
+
+  scrollbar-width: thin;
+  scrollbar-color: #4a90e2 #f1f1f1;
 }
 
-/* Main Content Area */
-.main-content {
-  flex-grow: 1;
-  margin-left: 20%;
-  width: calc(100% - 20%);
-  padding: 20px;
-  background: #f4f6f9;
-  overflow: hidden; // Prevents horizontal scrolling
-}
-
-/* Student Form */
-// .student-form-container {
-//   grid-column: 2;
-//   background: rgb(184, 177, 177);
-//   padding: 20px;
-//   border-radius: 5px;
-//   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-//  width: 78vw;
-//  height: 100%;
-//   margin: auto;
-//   // display: none; // Initially hidden
-//   margin-left: 100%;
-
-
-// }
-
-
-
-
-// .contents{
-//   grid-column: 2;
-//   background: #f4f6f9;
-//   padding: 20px;
-//   border-radius: 5px;
-//   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-//  width: 78vw;
-
-//  min-height: 100vh;
-//  height: auto;
-
-//   // margin: auto;
-//   // display: none; // Initially hidden
-//   margin-left: 100%;
-
-// }
-
-.contents {
-  width: 100%;
-  padding: 20px;
-  background: #f4f6f9;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  min-height: 100vh;
-  margin-left: 0; // Fix alignment
-}
-
-
-////table
-
-/* Table Styling */
-.table-container {
-  // max-width: 600px;
-  // margin: 40px auto;
-  // padding: 30px;
-  // background: white;
-  // border-radius: 8px;
-  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  // margin-left: 100%;
-}
-
-
-h2,h4 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 15px;
-}
-
-/* Table */
-table {
-  width: 80%;
-  border-collapse: collapse;
-  font-size: 16px;
-  text-align: left;
-  overflow: hidden;
-  border-radius: 10px;
-  margin-left: 200px;
-}
-
-/* Table Header */
-thead {
-  background-color: #64a2f5;
-  color: white;
-}
-
-th, td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-th {
-  font-weight: bold;
-}
-
-/* Table Row Hover */
-tbody tr:hover {
-  background-color: rgba(100, 162, 245, 0.2);
-  transition: background 0.3s ease-in-out;
-}
-
-/* Delete Button */
-button {
-  background: #f44336;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  transition: background 0.3s;
-}
-
-button:hover {
-  background: #d32f2f;
-}
-
-
-
-
-
-
-
-.dropdown {
+.dropdown-content a {
+  color: #333333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
   position: relative;
-  display: inline-block;
-
-  select {
-    width: 200px;
-    padding: 5px;
-    font-size: 16px;
-    border: 2px solid #64a2f5;
-    border-radius: 5px;
-    background-color: white;
-    color: #333;
-    cursor: pointer;
-    appearance: none; // Removes default arrow (for modern browsers)
-    outline: none;
-    transition: all 0.3s ease-in-out;
-
-    option :hover {
-      background-color: rgb(150, 149, 149); // Light blue hover
-    }
-
-    &:focus {
-      border-color: #3367d6; // Darker blue for focus
-      box-shadow: 0 0 5px rgba(100, 162, 245, 0.5);
-    }
-  }
-
-  // Custom dropdown arrow
-  &::after {
-    content: '\25BC'; // Unicode for down arrow
-    font-size: 14px;
-    color: #64a2f5;
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    pointer-events: none; // Prevent interaction
-  }
-}
-
-
-
-////teachetable
-
-
-/* Teacher Table Styling */
-// .table-teacher-container {
-//   max-width: 800px; /* Adjust width */
-//   // margin: 40px auto;
-//   padding: 30px;
-//   background: white;
-//   border-radius: 8px;
-//   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-//   margin-left: 670px auto;
-
-
-// }
-
-/* Table */
-.table-teacher-container table {
-  width: 90%;
-  border-collapse: collapse;
-  font-size: 16px;
-  text-align: left;
+  border-bottom: 1px solid #f5f5f5;
+  white-space: nowrap;
   overflow: hidden;
-  border-radius: 10px;
+  text-overflow: ellipsis;
 }
 
-/* Table Header */
-.table-teacher-container thead {
-  background-color: #64a2f5;
-  color: white;
+.dropdown-content a:last-child {
+  border-bottom: none;
 }
 
-.table-teacher-container th,
-.table-teacher-container td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
+.dropdown-content a:hover {
+  color: #4a90e2;
+  background: #f8fafd;
+  padding-left: 20px;
 }
 
-.table-teacher-container th {
-  font-weight: bold;
+.nav-item:hover .dropdown-content {
+  display: block;
+  opacity: 1;
+  top: 100%;
 }
 
-/* Table Row Hover */
-.table-teacher-container tbody tr:hover {
-  background-color: rgba(100, 162, 245, 0.2);
-  transition: background 0.3s ease-in-out;
+/* Subtle line under nav items on hover */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #4a90e2;
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
 }
 
-
-///group
-.group-container{
-
+.nav-item:hover::after {
+  transform: scaleX(1);
 }
 
+/* Subtle arrow indicator */
+.dropbtn::after {
+  content: '▾';
+  font-size: 12px;
+  margin-left: 4px;
+  transition: transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.nav-item:hover .dropbtn::after {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .dropbtn {
+    width: 100%;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+
+  .dropdown-content {
+    max-height: 50vh;
+    width: 100%;
+    position: relative;
+    transform: none;
+    left: 0;
+    margin-top: 8px;
+  }
+}
+
+/* Fade effects for scrolling dropdown */
+.dropdown-content::before,
+.dropdown-content::after {
+  content: '';
+  position: sticky;
+  left: 0;
+  right: 0;
+  height: 20px;
+  pointer-events: none;
+}
+
+.dropdown-content::before {
+  top: 0;
+  background: linear-gradient(to bottom, #ffffff, transparent);
+}
+
+.dropdown-content::after {
+  bottom: 0;
+  background: linear-gradient(to top, #ffffff, transparent);
+}

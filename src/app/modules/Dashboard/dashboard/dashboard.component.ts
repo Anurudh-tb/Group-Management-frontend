@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { error } from 'console';
 import { ApiService } from 'src/app/services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -9,15 +10,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private login:AuthService,public api:ApiService) { }
+  constructor(private login:AuthService,public api:ApiService,public router:Router) { }
 
-  students:any =[]
-  teachersList:any=[]
+  // students:any =[]
+  // teachersList:any=[]
   groups: any[] = [];
   ngOnInit(): void {
-      this.fetchStudents();
-      this.fetchTeacherlist();
+      // this.fetchStudents();
+      // this.fetchTeacherlist();
       this.getAllGroups();
+
   }
 
   dropdownOpen: { [key: string]: boolean } = {
@@ -31,13 +33,13 @@ export class DashboardComponent implements OnInit {
   toggleDropdown(section: string): void {
     this.dropdownOpen[section] = !this.dropdownOpen[section];
   }
-  showAddStudent = false;
-  showStudentList=false;
-  showAddteacher=false;
-  showTeacherList=false;
-  showAddgroup=false;
-  showAddStudentgroup=false;
-  showCourseTable=false
+  // showAddStudent = false;
+  // showStudentList=false;
+  // showAddteacher=false;
+  // showTeacherList=false;
+  // showAddgroup=false;
+  // showAddStudentgroup=false;
+  // showCourseTable=false
   // toggleAddStudent() {
   //   this.showAddStudent = !this.showAddStudent;
   // }
@@ -97,72 +99,72 @@ export class DashboardComponent implements OnInit {
 //     }
 // }
 
-onSelectChange(event: Event, type: string) {
-  const selectElement = event.target as HTMLSelectElement;
-  const selectedValue = selectElement.value;
+// onSelectChange(event: Event, type: string) {
+//   const selectElement = event.target as HTMLSelectElement;
+//   const selectedValue = selectElement.value;
 
-  // Reset all boolean flags
-  this.showAddgroup = false;
-  this.showStudentList = false;
-  this.showAddteacher = false;
-  this.showTeacherList = false;
-  this.showAddStudent = false;
-  this.showAddStudentgroup=false;
+//   // Reset all boolean flags
+//   this.showAddgroup = false;
+//   this.showStudentList = false;
+//   this.showAddteacher = false;
+//   this.showTeacherList = false;
+//   this.showAddStudent = false;
+//   this.showAddStudentgroup=false;
 
-  if (type === 'student') {
-    if (selectedValue === 'add') {
-      this.showAddStudent = true;
-      this. showCourseTable=false
-    } else if (selectedValue === 'list') {
-      this.showStudentList = true;
-      this. showCourseTable=false
-    }
-  }
-  else if (type === 'teacher') {
-    if (selectedValue === 'add') {
-      this.showAddteacher = true;
-      this. showCourseTable=false
-    } else if (selectedValue === 'list') {
-      this.showTeacherList = true;
-      this. showCourseTable=false
-    }
-  }
-  else if (type === 'group') {
-    if (selectedValue === 'add') {
-      this.showAddgroup = true;
-      this. showCourseTable=false
-    }else if(selectedValue==='add-student'){
-      this.showAddStudentgroup=true;
-      this. showCourseTable=false
-    }
-  }
-
-
-  // Reset dropdown selection
-  selectElement.selectedIndex = 0;
-}
+//   if (type === 'student') {
+//     if (selectedValue === 'add') {
+//       this.showAddStudent = true;
+//       this. showCourseTable=false
+//     } else if (selectedValue === 'list') {
+//       this.showStudentList = true;
+//       this. showCourseTable=false
+//     }
+//   }
+//   else if (type === 'teacher') {
+//     if (selectedValue === 'add') {
+//       this.showAddteacher = true;
+//       this. showCourseTable=false
+//     } else if (selectedValue === 'list') {
+//       this.showTeacherList = true;
+//       this. showCourseTable=false
+//     }
+//   }
+//   else if (type === 'group') {
+//     if (selectedValue === 'add') {
+//       this.showAddgroup = true;
+//       this. showCourseTable=false
+//     }else if(selectedValue==='add-student'){
+//       this.showAddStudentgroup=true;
+//       this. showCourseTable=false
+//     }
+//   }
 
 
+//   // Reset dropdown selection
+//   selectElement.selectedIndex = 0;
+// }
 
 
-  fetchStudents(){
-    this.api.getAllstudents().subscribe((res:any)=>{
-      this.students=res.data;
-      console.log("students",this.students);
 
-    }
-  )
-  }
-  fetchTeacherlist(){
-    this.api.getAllteachers().subscribe((res:any)=>{
-      this.teachersList=res.data;
-      console.log("teachers",this.teachersList);
-    })
-  }
+
+  // fetchStudents(){
+  //   this.api.getAllstudents().subscribe((res:any)=>{
+  //     this.students=res.data;
+  //     console.log("students",this.students);
+
+  //   }
+  // )
+  // }
+  // fetchTeacherlist(){
+  //   this.api.getAllteachers().subscribe((res:any)=>{
+  //     this.teachersList=res.data;
+  //     console.log("teachers",this.teachersList);
+  //   })
+  // }
   getAllGroups() {
     this.api.getAllGroup().subscribe((response: any) => {
       if (response.success) {
-        this.groups = response.data; // Assuming API returns a valid list
+        this.groups = response.data;
       }
     });
   }
@@ -178,13 +180,7 @@ onSelectChange(event: Event, type: string) {
 selectedBatch: string = ""; // Default empty value
 
 onBatchSelect(event: Event) {
-  this. showCourseTable=true
-  this.showAddgroup = false;
-  this.showStudentList = false;
-  this.showAddteacher = false;
-  this.showTeacherList = false;
-  this.showAddStudent = false;
-  this.showAddStudentgroup=false;
+
   const selectedValue = (event.target as HTMLSelectElement).value;
   console.log("Selected Batch ID:", selectedValue);
   this.selectedBatch = selectedValue;
@@ -192,9 +188,20 @@ onBatchSelect(event: Event) {
 }
 
 
+
+navigateTo(event: Event) {
+  const selectedValue = (event.target as HTMLSelectElement).value;
+  if (selectedValue) {
+    console.log("Navigating to:", selectedValue); // Debugging
+    this.router.navigateByUrl(selectedValue);
+  }
+}
+
+
 getAllBatches(){
   this.api.getCourseDetails(this.selectedBatch).subscribe(
     (res:any)=>{
+
       this.courseMappings=res.data
       this.courseName=res.data[0].course.name;
       this.teacherName=res.data[0].course.teacher.name;

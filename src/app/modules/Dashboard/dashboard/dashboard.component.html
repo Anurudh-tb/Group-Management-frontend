@@ -1,42 +1,54 @@
-<div class="container">
-  <div class="sideNav">
-    <div class="dropdown">
-      <select (change)="onSelectChange($event, 'student')" #studentDropdown>
-        <option value="">Students</option>
-        <option value="add">Add Student</option>
-        <option value="list">Student List</option>
-      </select>
+<div class="navbar">
+  <div class="nav-item dropdown">
+    <button class="dropbtn">Students </button>
+    <div class="dropdown-content">
+      <a routerLink="/student/add-student">Add Student</a>
+      <a routerLink="/student/student-list">Student List</a>
     </div>
-
-    <div class="dropdown">
-      <select (change)="onSelectChange($event, 'teacher')" #teacherDropdown>
-        <option value="">Teacher</option>
-        <option value="add">Add Teacher</option>
-        <option value="list">Teacher List</option>
-      </select>
-    </div>
-
-    <div class="dropdown">
-      <select (change)="onSelectChange($event, 'group')" #groupDropdown>
-        <option value="">Groups</option>
-        <option value="add">add Group</option>
-        <option value="add-student">add students</option>
-      </select>
-    </div>
-
-    <div class="dropdown">
-      <select [(ngModel)]="selectedBatch" (change)="onBatchSelect($event)" >
-        <option value="" disabled selected>Select Group</option>
-        <option *ngFor="let course of groups" [value]="course.id">{{ course.name }}</option>
-      </select>
-    </div>
-
-
   </div>
 
-  <div class="contents">
+  <div class="nav-item dropdown">
+    <button class="dropbtn">Teacher </button>
+    <div class="dropdown-content">
+      <a routerLink="/teacher/add-teacher">Add Teacher</a>
+      <a routerLink="/teacher/teacher-list">Teacher List</a>
+    </div>
+  </div>
+
+  <div class="nav-item dropdown">
+    <button class="dropbtn">Groups </button>
+    <div class="dropdown-content">
+      <a routerLink="/group/add-group">Add Group</a>
+      <a routerLink="/group/group-list">Student List</a>
+    </div>
+  </div>
+
+  <!-- <div class="nav-item dropdown">
+    <button class="dropbtn"   [(ngModel)]="selectedBatch" (change)="onBatchSelect($event)"     >Select Group </button>
+    <div class="dropdown-content">
+      <a href="/group-list" *ngFor="let course of groups">{{ course.name }}</a>
+    </div>
+  </div>
+</div> -->
+<div class="nav-item dropdown">
+  <button class="dropbtn">Select Group</button>
+  <div class="dropdown-content">
+    <a *ngFor="let course of groups" (click)="onBatchSelect($event)">
+      {{ course.name }}
+    </a>
+  </div>
+</div>
+
+<!-- Display Group Details -->
+<app-group-list *ngIf="selectedBatch" [selectedGroupId]="selectedBatch"></app-group-list>
+
+
+
+
+
+  <!-- <div class="contents"> -->
     <!-- Show Only One Form at a Time -->
-    <div class="form-container">
+    <!-- <div class="form-container">
       <div class="student-form-container" *ngIf="showAddStudent">
         <app-add-student></app-add-student>
       </div>
@@ -49,11 +61,11 @@
       </div>
       <div class="group-students" *ngIf="showAddStudentgroup">
         <app-add-studetns></app-add-studetns>
-      </div>
-    </div>
+     </div>
+    </div> -->
 
     <!-- Student List Table -->
-    <div class="table-container" *ngIf="showStudentList">
+    <!-- <div class="table-container" *ngIf="showStudentList">
       <h2>Students List</h2>
       <table>
         <thead>
@@ -83,8 +95,8 @@
           </tr>
         </tbody>
       </table>
-    </div>
-    <div class="table-teacher-container" *ngIf="showTeacherList">
+    </div> -->
+    <!-- <div class="table-teacher-container" *ngIf="showTeacherList">
       <h2>Teacher List</h2>
       <table>
         <thead>
@@ -112,37 +124,30 @@
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
 
 
 
-    <div class="table-container" *ngIf="showCourseTable">
+    <!-- <div class="table-container" >
       <h2>Group Details</h2>
       <h4>Group Name: {{courseName}}</h4>
       <h4>Teacher Name:{{teacherName}}</h4>
       <table>
         <thead>
           <tr>
-            <th>ID</th>
-            <!-- <th>Course Name</th> -->
-            <!-- <th>Teacher Name</th> -->
+            <th>No</th>
             <th>Student Name</th>
-            <!-- <th>Created At</th> -->
-            <!-- <th>Updated At</th> -->
+
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let mapping of courseMappings">
-            <td>{{ mapping.id }}</td>
-            <!-- <td>{{ mapping.course?.name || 'N/A' }}</td> -->
-            <!-- <td>{{ mapping.course?.teacher?.name || 'N/A' }}</td> -->
+          <tr *ngFor="let mapping of courseMappings; let i=index">
+            <td>{{i+1}}</td>
             <td>{{ mapping.student?.fullname || 'N/A' }}</td>
-            <!-- <td>{{ mapping.createdAt | date:'medium' }}</td> -->
-            <!-- <td>{{ mapping.updatedAt | date:'medium' }}</td> -->
           </tr>
         </tbody>
       </table>
-    </div>
+    </div> -->
 
-  </div>
-</div>
+  <!-- </div> -->
+<!-- </div> -->

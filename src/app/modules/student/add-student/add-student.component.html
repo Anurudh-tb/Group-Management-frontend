@@ -1,9 +1,13 @@
 <div class="container">
   <h2>Student Registration</h2>
   <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
     <div class="form-group">
-      <label for="firstname">First Name</label>
+      <label for="firstname">First Name <span class="required">*</span></label>
       <input id="firstname" formControlName="firstname" type="text">
+      <span class="error" *ngIf="studentForm.controls['firstname'].touched && studentForm.controls['firstname'].errors?.['required']">
+        First Name is required.
+      </span>
     </div>
 
     <div class="form-group">
@@ -12,46 +16,63 @@
     </div>
 
     <div class="form-group">
-      <label for="lastname">Last Name</label>
+      <label for="lastname">Last Name <span class="required">*</span></label>
       <input id="lastname" formControlName="lastname" type="text">
+      <span class="error" *ngIf="studentForm.controls['lastname'].touched && studentForm.controls['lastname'].errors?.['required']">
+        Last Name is required.
+      </span>
     </div>
 
     <div class="form-group">
-      <label for="dob">Date of Birth</label>
+      <label for="dob">Date of Birth <span class="required">*</span></label>
       <input id="dob" formControlName="dob" type="date">
+      <span class="error" *ngIf="studentForm.controls['dob'].touched && studentForm.controls['dob'].errors?.['required']">
+        Date of Birth is required.
+      </span>
     </div>
 
     <div class="form-group">
-      <label for="address">Address</label>
+      <label for="address">Address <span class="required">*</span></label>
       <textarea id="address" formControlName="address"></textarea>
+      <span class="error" *ngIf="studentForm.controls['address'].touched && studentForm.controls['address'].errors?.['required']">
+        Address is required.
+      </span>
     </div>
 
     <div class="form-group">
-      <label for="email">Email</label>
+      <label for="email">Email <span class="required">*</span></label>
       <input id="email" formControlName="email" type="email">
+      <span class="error" *ngIf="studentForm.controls['email'].touched">
+        <span *ngIf="studentForm.controls['email'].errors?.['required']">Email is required.</span>
+        <span *ngIf="studentForm.controls['email'].errors?.['email']">Enter a valid email.</span>
+      </span>
     </div>
 
     <div class="form-group">
-      <label>Gender</label>
+      <label>Gender <span class="required">*</span></label>
       <div class="radio-group">
         <label class="radio-label">
-          <input type="radio" formControlName="gender" value="Male">
-          Male
+          <input type="radio" formControlName="gender" value="Male"> Male
         </label>
         <label class="radio-label">
-          <input type="radio" formControlName="gender" value="Female">
-          Female
+          <input type="radio" formControlName="gender" value="Female"> Female
         </label>
         <label class="radio-label">
-          <input type="radio" formControlName="gender" value="Other">
-          Other
+          <input type="radio" formControlName="gender" value="Other"> Other
         </label>
       </div>
+      <span class="error" *ngIf="studentForm.controls['gender'].touched && studentForm.controls['gender'].errors?.['required']">
+        Gender selection is required.
+      </span>
     </div>
 
     <div class="form-group">
-      <label for="age">Age</label>
+      <label for="age">Age <span class="required">*</span></label>
       <input id="age" formControlName="age" type="number">
+      <span class="error" *ngIf="studentForm.controls['age'].touched">
+        <span *ngIf="studentForm.controls['age'].errors?.['required']">Age is required.</span>
+        <span *ngIf="studentForm.controls['age'].errors?.['min']">Age must be greater than 0.</span>
+      </span>
     </div>
 
     <button type="submit" [disabled]="studentForm.invalid">Submit</button>

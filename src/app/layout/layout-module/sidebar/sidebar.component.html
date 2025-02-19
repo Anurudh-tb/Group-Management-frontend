@@ -1,0 +1,43 @@
+<div class="navbar">
+  <div class="nav-item dropdown">
+    <button class="dropbtn">Students </button>
+    <div class="dropdown-content">
+      <a routerLink="/student/add-student">Add Student</a>
+      <a routerLink="/student/student-list">Student List</a>
+    </div>
+  </div>
+
+  <div class="nav-item dropdown">
+    <button class="dropbtn">Teacher </button>
+    <div class="dropdown-content">
+      <a routerLink="/teacher/add-teacher">Add Teacher</a>
+      <a routerLink="/teacher/teacher-list">Teacher List</a>
+    </div>
+  </div>
+
+  <div class="nav-item dropdown">
+    <button class="dropbtn">Groups </button>
+    <div class="dropdown-content">
+      <a routerLink="/group/add-group">Add Group</a>
+      <a routerLink="/group/group-list">Student List</a>
+    </div>
+  </div>
+
+
+<div class="nav-item dropdown">
+  <button class="dropbtn">Select Group</button>
+  <div class="dropdown-content">
+    <a *ngFor="let course of groups" (click)="onBatchSelect($event)">
+      {{ course.name }}
+    </a>
+  </div>
+</div>
+
+<!-- Display Group Details -->
+<app-group-list *ngIf="selectedBatch" [selectedGroupId]="selectedBatch"></app-group-list>
+
+
+
+
+
+

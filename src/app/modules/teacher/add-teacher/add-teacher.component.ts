@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormRecord, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -9,7 +11,7 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class AddTeacherComponent implements OnInit {
 
-  constructor(public api:ApiService) { }
+  constructor(public api:ApiService,public router:Router,public toastr:ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -38,12 +40,19 @@ export class AddTeacherComponent implements OnInit {
       this.api.addTeacher(this.teacherForm.value).subscribe(
         (res: any) => {
           console.log("Teacher added successfully", res);
+          this.toastr.success('Teacher added successfully!', 'Success');
+          this.router.navigate(['/teacher/teacher-list']);
+          alert('Form Submitted Successfully!');
+          this.teacherForm.reset();
+        },
+        (error) => {
+          console.error("Error adding teacher", error);
+          this.toastr.error('Failed to add teacher. Please try again.', 'Error');
         }
       );
-      alert('Form Submitted Successfully!');
-      this.teacherForm.reset();
     } else {
       console.log('Form is invalid');
+      this.toastr.warning('Please fill all required fields correctly.', 'Warning');
       alert('Please fill all required fields correctly.');
     }
   }

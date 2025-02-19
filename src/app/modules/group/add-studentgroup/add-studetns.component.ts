@@ -87,10 +87,6 @@ export class AddStudentGroupComponent implements OnInit {
             this.studentIdArray.clear(); // Reset FormArray
             this.selectedStudentIds = []; // Reset selection
           },
-          (error) => {
-            console.error("Error adding students:", error);
-            alert("Failed to add students.");
-          }
         );
     }
   }

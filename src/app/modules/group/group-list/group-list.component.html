@@ -1,0 +1,32 @@
+<div class="dropdown">
+  <select [(ngModel)]="selectedBatch" (change)="onBatchSelect($event)">
+    <option value="" disabled selected>Select Group</option>
+    <option *ngFor="let course of groups" [value]="course.id">{{ course.name }}</option>
+  </select>
+</div>
+
+<div class="table-container" *ngIf="selectedBatch">
+  <h2>Group Details</h2>
+  <h4>Group Name: {{ courseName }}</h4>
+  <h4>Teacher Name: {{ teacherName }}</h4>
+
+  <table>
+    <thead>
+      <tr>
+        <th>No</th>
+        <th>Student Name</th>
+        <th>view</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let mapping of courseMappings; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ mapping.student?.fullname || 'N/A' }}</td>
+        <td> <button (click)="viewStudentDetails(mapping.student)">
+          <i class="fas fa-eye" ></i>
+            </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

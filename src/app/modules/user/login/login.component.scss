@@ -15,23 +15,22 @@ label {
   color: #333;
 }
 
-input {
-  width: 100%;
+input, button {
+  width: 100%; /* Ensures consistent width */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
+  box-sizing: border-box; /* Prevents width issues due to padding/border */
 }
 
 button {
-  background: #ccc;
+  background: #44bb19d1;
   color: white;
-  padding: 10px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
   transition: background 0.3s ease;
+
 
   &:disabled {
     background: #ccc;
@@ -41,4 +40,53 @@ button {
   &:hover:not(:disabled) {
     background: rgba(68, 187, 25, 0.82);
   }
+
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+/* Language Switch Button Styles */
+.en, .sp {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff6252;
+  background: #fff7f6;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
+.en:hover, .sp:hover {
+  background: #b7b421;
+  color: white;
+  box-shadow: 0px 4px 10px rgba(255, 98, 82, 0.3);
+}
+
+.en:active, .sp:active {
+  transform: scale(0.95);
+}
+
+/* Spacing between buttons */
+.en {
+  margin-right: 10px;
+}
+
+.sp {
+  margin-left: 10px;
+}
+.language_switch{
+  display: flex;
+  justify-content: center; /* Centering the buttons */
+  align-items: center;
+  gap: 15px; /* Space between buttons */
+  margin-top: 20px;
 }
